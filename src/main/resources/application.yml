@@ -1,0 +1,26 @@
+server:
+  port: ${PORT:8080}
+spring:
+  datasource:
+    url: jdbc:h2:mem:product-api;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        hbm2ddl:
+          import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
+          auto: create-drop
+          import_files: sql_imports/products.sql,sql_imports/product_images.sql
+        show_sql: false
+        use_sql_comments: false
+        format_sql: false
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: always
