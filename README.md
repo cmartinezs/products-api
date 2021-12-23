@@ -20,7 +20,7 @@ This command executes the rest-api application locally available on port 8080
 curl --location --request GET 'localhost:8080/products'
 ```
 2.- Get product by `sku`
-```
+```bash
 curl --location --request GET 'localhost:8080/products/FAL-881952283'
 ```
 3.- Post a new product
