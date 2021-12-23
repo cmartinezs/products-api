@@ -16,15 +16,15 @@ This command executes the rest-api application locally available on port 8080
 
 ### Use of available endpoints
 1.- Get all products
-```
+```bash
 curl --location --request GET 'localhost:8080/products'
 ```
 2.- Get product by `sku`
 ```
 curl --location --request GET 'localhost:8080/products/FAL-881952283'
 ```
-`3`.- Post a new product
-```
+3.- Post a new product
+```bash
 curl --location --request POST 'localhost:8080/products' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -37,7 +37,7 @@ curl --location --request POST 'localhost:8080/products' \
 }'
 ```
 4.- Put a product by `sku`
-```
+```bash
 curl --location --request PUT 'localhost:8080/products/FAL-881952283' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -53,7 +53,7 @@ curl --location --request PUT 'localhost:8080/products/FAL-881952283' \
 }'
 ```
 5.- Delete product by `sku`
-```
+```bash
 curl --location --request DELETE 'localhost:8080/products/FAL-8406270'
 ```
 
