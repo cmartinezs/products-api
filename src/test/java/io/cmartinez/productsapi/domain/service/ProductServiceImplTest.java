@@ -69,8 +69,7 @@ class ProductServiceImplTest {
     void update() {
         ProductDto productDto = getProductDto();
         String sku = productDto.getSku();
-        ProductDto any = Mockito.any(ProductDto.class);
-        Mockito.when(productPersistencePort.update(Mockito.eq(sku), any)).thenReturn(productDto);
+        Mockito.when(productPersistencePort.update(Mockito.eq(sku), Mockito.any(ProductDto.class))).thenReturn(productDto);
         ProductDto update = productService.update(sku, productDto);
 
         assertNotNull(update);
@@ -84,6 +83,7 @@ class ProductServiceImplTest {
         dto.setSku("FAL-10000000");
         dto.setPrice(10000.00);
         dto.setPrincipalImage("http://una-url.com/de-una-imagen.jpg");
+        dto.setOtherImages(List.of("http://otra-url.com/de-una-imagen.jpg", "http://otras-url.com/de-otra-imagen.jpg"));
         return dto;
     }
 }

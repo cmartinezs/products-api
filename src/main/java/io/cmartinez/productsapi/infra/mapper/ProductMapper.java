@@ -31,24 +31,11 @@ public interface ProductMapper {
 
     List<ProductDto> toProductListDto(List<Product> product);
 
-    List<Product> toProductList(List<ProductDto> productDto);
-
     default String fromProductImage(ProductImage productImage) {
         return productImage != null ? productImage.getUrl() : null;
     }
 
     default ProductImage fromString(String image) {
         return ProductImage.builder().url(image).build();
-    }
-
-    default List<String> mapImages(Product product) {
-        return product.getImages().stream().map(ProductImage::getUrl).collect(Collectors.toList());
-    }
-
-    default List<ProductImage> mapImages(ProductDto product) {
-        return product.getOtherImages()
-                .stream()
-                .map(s -> ProductImage.builder().url(s).build())
-                .collect(Collectors.toList());
     }
 }

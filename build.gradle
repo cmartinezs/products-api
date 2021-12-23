@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'jacoco'
 }
 
 group = 'io.cmartinez'
@@ -30,4 +31,21 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+
+jacocoTestReport {
+    dependsOn test
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "io/cmartinez/productsapi/app/controller/**ExceptionHandler.*",
+                    "io/cmartinez/productsapi/app/request/**",
+                    "io/cmartinez/productsapi/app/response/**",
+                    "io/cmartinez/productsapi/app/**Application.*",
+                    "**/config/*"
+            ])
+        }))
+    }
 }

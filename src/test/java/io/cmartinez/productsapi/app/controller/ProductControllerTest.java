@@ -96,6 +96,7 @@ class ProductControllerTest {
         dto.setSku("FAL-10000000");
         dto.setPrice(10000.00);
         dto.setPrincipalImage("http://una-url.com/de-una-imagen.jpg");
+        dto.setOtherImages(List.of("http://otra-url.com/de-una-imagen.jpg", "http://otras-url.com/de-otra-imagen.jpg"));
         return dto;
     }
 
@@ -107,6 +108,7 @@ class ProductControllerTest {
         productRequest.setSku("FAL-10000000");
         productRequest.setPrice(10000.00);
         productRequest.setPrincipalImage("http://una-url.com/de-una-imagen.jpg");
+        productRequest.setOtherImages(List.of("http://otra-url.com/de-una-imagen.jpg", "http://otras-url.com/de-otra-imagen.jpg"));
         return productRequest;
     }
 }
